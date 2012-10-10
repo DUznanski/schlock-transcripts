@@ -12,12 +12,12 @@ then
 	mkdir -p $destination
 fi
 
-for file in $source/*-*-*.md
+for file in $source/????-??-??.md
 do
-	file=${file#./}
+	file=${file##*/}
 	file=${file%.md}
 	
 	echo "<root>" > $destination/$file.xml
-	cat ./$file.md >> $destination/$file.xml
+	cat $source/$file.md >> $destination/$file.xml
 	echo "</root>" >> $destination/$file.xml
 done
